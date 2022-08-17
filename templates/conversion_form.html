@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <form action="" method="POST" novalidate> 
+        <!-- # it means we are validating on the server not on the client side -->
+        {{ form.hidden_tag() }}
+        <br />
+        <p>{{ form.input.label}}</p>
+        <p>{{ form.input() }}</p>
+        <br />
+        {{form.input_field.label}}
+        {{form.input_field}}
+        <br />
+        <img src="{{url_for('static', filename='image.jpg')}}" alt="leopard in the woods" />
+        <br />
+        <p>{{form.output.label}}</p>
+        <p>{{ form.output() }}</p>
+        <br />
+        <p>{{form.outcome.label}}</p>
+        {{form.outcome(disabled=True)}}
+        <br />
+        {{ form.submit() }}
+        <p>
+            <a href="{{ url_for('shift')}}">Go to Caesar shift page</a>
+        </p>
+    </form>
+    
+{% endblock %}

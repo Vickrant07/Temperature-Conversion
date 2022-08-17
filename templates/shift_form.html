@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <form action="" method="POST" novalidate> 
+        <!-- # it means we are validating on the server not on the client side -->
+        {{ form.hidden_tag() }}
+        {{ form.plaintext.label }}
+        {{ form.plaintext() }}
+        {% for error in form.plaintext.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.shift.label }}
+        {{ form.shift() }}
+        {% for error in form.shift.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.ciphertext.label }}
+        {{ form.ciphertext() }}
+        <br />
+        {{ form.submit() }}
+        <br />
+        <img src="{{url_for('static', filename='image.jpg')}}" alt="leopard in the woods" />
+        <p>
+            <a href="{{ url_for('conversion')}}">Go to Caesar shift page</a>
+        </p>
+    </form>
+    
+{% endblock %}
